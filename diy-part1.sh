@@ -15,8 +15,6 @@
 rm -rf feeds/luci/themes/luci-theme-argon
 # 添加主题
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-# 取消主题默认设置
-find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 
 
 # 添加软件包
