@@ -10,9 +10,14 @@
 # See /LICENSE for more information.
 #
 
-# Uncomment a feed source
-#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+# Themes
+# 移除要替换的包
+rm -rf feeds/luci/themes/luci-theme-argon
+# 添加主题
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+# 取消主题默认设置
+find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 
-# Add a feed source
-echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-#echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+
+# 添加软件包
+git clone https://github.com/srfj/luci-app-mwan3helper-chinaroute package/luci-app-mwan3helper-chinaroute
