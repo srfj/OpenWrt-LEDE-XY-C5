@@ -22,6 +22,9 @@ sed -i 's/OpenWrt/LEDE-srfj/g' package/base-files/files/bin/config_generate
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
+# 修复ramips 5.10内核802补丁冲突
+rm -f target/linux/ramips/patches-5.10/802-GPIO-MIPS-ralink-add-gpio-driver-for-ralink-SoC.patch
+
 # make defconfig
 sed -i 's/^[ \t]*//g' ./.config
 make defconfig
