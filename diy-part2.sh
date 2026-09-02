@@ -23,10 +23,11 @@ sed -i 's/OpenWrt/LEDE-srfj/g' package/base-files/files/bin/config_generate
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 修复ramips mt7621 5.10内核补丁冲突
-echo "===== Try to remove 802 gpio patch ====="
+echo "===== Try to remove 802/803 gpio patches ====="
 pwd
 ls -la target/linux/ramips/patches-5.10/
 rm -f target/linux/ramips/patches-5.10/802-GPIO-MIPS-ralink-add-gpio-driver-for-ralink-SoC.patch
+rm -f target/linux/ramips/patches-5.10/803-gpio-ralink-Add-support-for-GPIO-as-interrupt-contro.patch
 ls -la target/linux/ramips/patches-5.10/
 echo "===== Remove done ====="
 
