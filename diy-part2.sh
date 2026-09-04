@@ -11,7 +11,8 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/luci2/bin/config_generate
+# 注：config_generate 位于 package/base-files/files/bin/ 下，旧路径(lcu2)不存在导致命令不生效
+sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
 
 # Modify default theme
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
